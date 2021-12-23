@@ -38,6 +38,7 @@ namespace llvm {
   FunctionPass *createMicroMipsSizeReducePass();
   FunctionPass *createMipsExpandPseudoPass();
   FunctionPass *createMipsPreLegalizeCombiner();
+  FunctionPass *createMipsMulMulBugPass();
 
   InstructionSelector *createMipsInstructionSelector(const MipsTargetMachine &,
                                                      MipsSubtarget &,

@@ -292,6 +292,10 @@ void MipsPassConfig::addPreEmitPass() {
   // instructions which can be remapped to a 16 bit instruction.
   addPass(createMicroMipsSizeReducePass());
 
+  // This pass inserts a nop instruction between two back-to-back multiplication
+  // instructions when the "mfix4300" flag is passed.
+  addPass(createMipsMulMulBugPass());
+
   // The delay slot filler pass can potientially create forbidden slot hazards
   // for MIPSR6 and therefore it should go before MipsBranchExpansion pass.
   addPass(createMipsDelaySlotFillerPass());
